@@ -1509,6 +1509,13 @@ public class OverScrollView extends FrameLayout implements OnTouchListener
 
 		// Calling this with the present values causes it to re-clam them
 		scrollTo(getScrollX(), getScrollY());
+		post(new Runnable()
+    		{
+        		public void run()
+        		{
+            			scrollTo(0, child.getPaddingTop());
+        		}
+    		});    
 	}
 
 	@Override
